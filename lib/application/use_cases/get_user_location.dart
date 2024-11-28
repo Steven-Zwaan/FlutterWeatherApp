@@ -1,7 +1,7 @@
-import 'package:weather_app/domain/contracts/weather_repository.dart';
+import 'package:weather_app/domain/contracts/weather_repository_base.dart';
 
 class GetUserLocation {
-  final WeatherRepository weatherRepository;
+  final WeatherRepositoryBase weatherRepository;
 
   GetUserLocation(this.weatherRepository);
 
