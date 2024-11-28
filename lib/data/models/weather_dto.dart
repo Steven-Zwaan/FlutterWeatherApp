@@ -2,7 +2,7 @@ import 'package:weather_app/domain/entities/weather.dart';
 
 class WeatherDto {
   final String cityName;
-  final double temperature;
+  final int temperature;
   final String mainCondition;
 
   WeatherDto({
@@ -14,7 +14,7 @@ class WeatherDto {
   factory WeatherDto.fromJson(Map<String, dynamic> json) {
     return WeatherDto(
       cityName: json['name'],
-      temperature: json['main']['temp'].toDouble(),
+      temperature: json['main']['temp'].toInt(),
       mainCondition: json['weather'][0]['main'],
     );
   }
