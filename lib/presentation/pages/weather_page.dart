@@ -12,10 +12,13 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
+  WeatherPageController weatherPageController =
+      GetIt.instance<WeatherPageController>();
+
   @override
   void initState() {
     super.initState();
-    GetIt.instance<WeatherPageController>().loadWeather();
+    weatherPageController.loadWeather();
   }
 
   @override
@@ -24,7 +27,7 @@ class _WeatherPageState extends State<WeatherPage> {
       backgroundColor: Colors.grey[800],
       body: Center(
         child: ChangeNotifierProvider<WeatherPageController>(
-          create: (_) => GetIt.instance<WeatherPageController>(),
+          create: (_) => weatherPageController,
           child: Consumer<WeatherPageController>(
             builder: (context, controller, child) {
               if (controller.isLoading) {
@@ -63,7 +66,7 @@ class _WeatherPageState extends State<WeatherPage> {
                   ],
                 );
               } else {
-                return Text('No weather data available');
+                return const Text('No weather data available');
               }
             },
           ),
